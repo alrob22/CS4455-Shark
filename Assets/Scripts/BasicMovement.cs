@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+public class BasicMovement : MonoBehaviour
 {
     public bool InputMapToCircular = true;
     private float filteredForwardInput = 0f;
