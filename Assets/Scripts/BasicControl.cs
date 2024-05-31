@@ -5,7 +5,7 @@ using UnityEngine.Windows;
 
 public class BasicControl : MonoBehaviour
 {
-    private CharacterController cCtrl;
+    private BasicMovement cCtrl;
     private Rigidbody rb;
 
     public float forwardMaxSpeed = 1f;
@@ -13,7 +13,7 @@ public class BasicControl : MonoBehaviour
 
     void Awake()
     {
-        cCtrl = GetComponent<CharacterController>();
+        cCtrl = GetComponent<BasicMovement>();
         rb = GetComponent<Rigidbody>();
     }
 
