@@ -1,10 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class KayakMovement : MonoBehaviour
 {
+    #region Texts 
+    public TextMeshProUGUI textA;
+    public TextMeshProUGUI textD;
+    public TextMeshProUGUI textQ;
+    public TextMeshProUGUI textE;
+    public TextMeshProUGUI textLeft;
+    public TextMeshProUGUI textRight;
+    public TextMeshProUGUI textS;
+    public TextMeshProUGUI textCTRL;
+    public TextMeshProUGUI textSpace;
+
+    #endregion
+
     [Header("Normal Paddle")]
     public float normalPaddleTurnForce = 10f;
     public float normalPaddleForwardForce = 10f;
@@ -87,6 +101,7 @@ public class KayakMovement : MonoBehaviour
         HandlePlayerInput();
         SetStrokeState();
         AlignRotation();
+        UpdateText();
     }
 
     void FixedUpdate()
@@ -281,6 +296,82 @@ public class KayakMovement : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hitInfo, 5f, whatIsWater, QueryTriggerInteraction.Ignore))
         {
             currentWaterUpDir = lastWaterUpDir = hitInfo.normal;
+        }
+    }
+
+    void UpdateText()
+    {
+        // normal stroke- A/D
+        if (normalStrokeAxis < 0)
+        {
+            textA.color = Color.yellow;
+        } else
+        {
+            textA.color = Color.black;
+        }
+        if (normalStrokeAxis > 0)
+        {
+            textD.color = Color.yellow;
+        } else
+        {
+            textD.color = Color.black;
+        }
+
+        // wide stroke- Q/E
+        if (wideStrokeAxis < 0)
+        {
+            textQ.color = Color.yellow;
+        } else
+        {
+            textQ.color = Color.black;
+        }
+        if (wideStrokeAxis > 0)
+        {
+            textE.color = Color.yellow;
+        } else
+        {
+            textE.color = Color.black;
+        }
+
+        // side stroke- left/right arrows
+        if (sideStrokeAxis < 0)
+        {
+            textLeft.color = Color.yellow;
+        } else
+        {
+            textLeft.color = Color.black;
+        }
+        if (sideStrokeAxis > 0)
+        {
+            textRight.color = Color.yellow;
+        } else
+        {
+            textRight.color = Color.black;
+        }
+
+        // back stroke- S
+        if (backStrokeAxis != 0)
+        {
+            textS.color = Color.yellow;
+        } else
+        {
+            textS.color = Color.black;
+        }
+
+        // edge/lean- CTRL/Space
+        if (edgeAxis < 0)
+        {
+            textCTRL.color = Color.yellow;
+        } else
+        {
+            textCTRL.color = Color.black;
+        }
+        if (edgeAxis > 0)
+        {
+            textSpace.color = Color.yellow;
+        } else
+        {
+            textSpace.color = Color.black;
         }
     }
 }
