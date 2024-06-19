@@ -27,10 +27,29 @@ public class GameControl : MonoBehaviour
         StartCoroutine(HideTextBoxesAfterDelay(20f));
     }
 
+    private void Update()
+    {
+        // 'C' key pressed?
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            StartCoroutine(ShowControlsForDuration(10f));
+        }
+    }
+
     private IEnumerator HideTextBoxesAfterDelay(float delay)
     {
         // delay
         yield return new WaitForSeconds(delay);
+        // deactivate the text container
+        textContainer.SetActive(false);
+    }
+
+    private IEnumerator ShowControlsForDuration(float duration)
+    {
+        // activate the text container
+        textContainer.SetActive(true);
+        // delay
+        yield return new WaitForSeconds(duration);
         // deactivate the text container
         textContainer.SetActive(false);
     }
