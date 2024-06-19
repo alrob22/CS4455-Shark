@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameControl : MonoBehaviour
 {
     public GameObject uiPanel; // UI gameobject
     public Button startButton;
     public Button exitButton;
+    public GameObject textContainer; // controls
 
     private void Start()
     {
@@ -22,6 +24,15 @@ public class GameControl : MonoBehaviour
         Time.timeScale = 1;
         // deactivate the UI panel
         uiPanel.SetActive(false);
+        StartCoroutine(HideTextBoxesAfterDelay(20f));
+    }
+
+    private IEnumerator HideTextBoxesAfterDelay(float delay)
+    {
+        // delay
+        yield return new WaitForSeconds(delay);
+        // deactivate the text container
+        textContainer.SetActive(false);
     }
 
     private void ExitGame()
