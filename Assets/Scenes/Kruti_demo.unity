@@ -290,7 +290,7 @@ MonoBehaviour:
   uiPanel: {fileID: 344064432}
   startButton: {fileID: 1247449836}
   exitButton: {fileID: 2132899875}
-  textContainer: {fileID: 690189889}
+  textContainer: {fileID: 1426545857}
 --- !u!4 &82899288
 Transform:
   m_ObjectHideFlags: 0
@@ -2505,6 +2505,7 @@ GameObject:
   - component: {fileID: 1426545858}
   - component: {fileID: 1426545860}
   - component: {fileID: 1426545859}
+  - component: {fileID: 1426545861}
   m_Layer: 5
   m_Name: Controls
   m_TagString: Untagged
@@ -2662,6 +2663,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426545857}
   m_CullTransparentMesh: 1
+--- !u!114 &1426545861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426545857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8688506b0ff03044bb0fb2c3937d3066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textA: {fileID: 998255520}
+  textD: {fileID: 862652433}
+  textQ: {fileID: 60468434}
+  textE: {fileID: 1872771368}
+  textLeft: {fileID: 1020696252}
+  textRight: {fileID: 1772830043}
+  textS: {fileID: 1839218398}
+  textCTRL: {fileID: 957175053}
+  textSpace: {fileID: 660496074}
+  normalPaddleTurnForce: 10
+  normalPaddleForwardForce: 10
+  normalRudderForce: 2
+  normalSmoothForceSpeed: 1
+  backPaddleForce: 10
+  widePaddleTurnForce: 20
+  widePaddleForwardForce: 5
+  wideSmoothForceSpeed: 1
+  sidePaddleForce: 5
+  sideSmoothForceSpeed: 1
+  edgeTurnInfluence: 5
+  edgeSideInfluence: 5
+  currentStroke: 0
+  lastStroke: 0
+  currentStrokeState: 0
+  isMovingWater: 0
+  movingWaterForce: 2
+  waterDirDownForce: 2
+  waterDownForceAngle: 10
+  whatIsWater:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1476263300
 GameObject:
   m_ObjectHideFlags: 0
@@ -2789,15 +2833,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8688506b0ff03044bb0fb2c3937d3066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textA: {fileID: 0}
-  textD: {fileID: 0}
-  textQ: {fileID: 0}
-  textE: {fileID: 0}
-  textLeft: {fileID: 0}
-  textRight: {fileID: 0}
-  textS: {fileID: 0}
-  textCTRL: {fileID: 0}
-  textSpace: {fileID: 0}
+  textA: {fileID: 998255520}
+  textD: {fileID: 862652433}
+  textQ: {fileID: 60468434}
+  textE: {fileID: 1872771368}
+  textLeft: {fileID: 1020696252}
+  textRight: {fileID: 1772830043}
+  textS: {fileID: 1839218398}
+  textCTRL: {fileID: 957175053}
+  textSpace: {fileID: 660496074}
   normalPaddleTurnForce: 5
   normalPaddleForwardForce: 100
   normalRudderForce: 10
