@@ -8,6 +8,8 @@ public class EnemyAI : MonoBehaviour
 {
     private NavMeshAgent agent;
     public GameObject player;
+    public Transform patrolPos;
+    public float patrolSpeed = 45f;
     public float chaseDist = 35f;
     public float attackDist = 15f;
 
@@ -35,6 +37,8 @@ public class EnemyAI : MonoBehaviour
                 }
 
                 agent.isStopped = true;
+
+                agent.transform.RotateAround(patrolPos.position, Vector3.up, Time.deltaTime * patrolSpeed);
 
                 break;
 
