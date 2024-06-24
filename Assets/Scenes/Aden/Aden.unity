@@ -1155,6 +1155,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1476263300}
+    - target: {fileID: 1695408714093343303, guid: e9a37cbfbd1881741804ce195ae6a257, type: 3}
+      propertyPath: m_Constraints
+      value: 42
+      objectReference: {fileID: 0}
     - target: {fileID: 2978896803041715572, guid: e9a37cbfbd1881741804ce195ae6a257, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3357,6 +3361,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2152014389614936476, guid: 7e13635671c8a5d408fc3bb6f8a0c80f, type: 3}
+      propertyPath: m_Constraints
+      value: 84
+      objectReference: {fileID: 0}
     - target: {fileID: 2152014389614936478, guid: 7e13635671c8a5d408fc3bb6f8a0c80f, type: 3}
       propertyPath: textA
       value: 
@@ -3403,7 +3411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7293084300367006492, guid: 7e13635671c8a5d408fc3bb6f8a0c80f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7293084300367006492, guid: 7e13635671c8a5d408fc3bb6f8a0c80f, type: 3}
       propertyPath: m_LocalPosition.z
