@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     private NavMeshAgent agent;
+    public Animator anim;
     public GameObject player;
     public Transform patrolPos;
     public float patrolSpeed = 45f;
@@ -37,7 +38,6 @@ public class EnemyAI : MonoBehaviour
                 }
 
                 agent.isStopped = true;
-
                 agent.transform.RotateAround(patrolPos.position, Vector3.up, Time.deltaTime * patrolSpeed);
 
                 break;
@@ -49,6 +49,7 @@ public class EnemyAI : MonoBehaviour
                 } else if (Vector3.Distance(player.transform.position, agent.transform.position) < attackDist)
                 {
                     state = AIState.Attack;
+                    anim.SetBool("AttackBool", true);
                 }
 
                 agent.isStopped = false;
@@ -60,6 +61,8 @@ public class EnemyAI : MonoBehaviour
                 if (Vector3.Distance(player.transform.position, agent.transform.position) > attackDist)
                 {
                     state = AIState.Chase;
+                    anim.speed = 1;
+                    anim.SetBool("AttackBool", false);
                 }
 
                 agent.isStopped = false;
