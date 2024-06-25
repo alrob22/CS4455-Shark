@@ -9,14 +9,21 @@ public class GameControl : MonoBehaviour
     public Button startButton;
     public Button exitButton;
     public GameObject textContainer; // controls
+    public Button infoButton; // "How to Play" button
+    public GameObject howToPlayCanvas; // How to Play canvas
+    public Button backButton; // back button to return from "How to Play"
+    public Button infoStartButton;
 
     private void Start()
     {
         Time.timeScale = 0;
-
+        howToPlayCanvas.SetActive(false);
         // listeners to the buttons
         startButton.onClick.AddListener(StartGame);
         exitButton.onClick.AddListener(ExitGame);
+        infoButton.onClick.AddListener(ShowHowToPlay);
+        backButton.onClick.AddListener(HideHowToPlay);
+        infoStartButton.onClick.AddListener(StartGame);
     }
 
     private void StartGame()
@@ -24,6 +31,7 @@ public class GameControl : MonoBehaviour
         Time.timeScale = 1;
         // deactivate the UI panel
         uiPanel.SetActive(false);
+        howToPlayCanvas.SetActive(false);
         StartCoroutine(HideTextBoxesAfterDelay(20f));
     }
 
@@ -52,6 +60,18 @@ public class GameControl : MonoBehaviour
         yield return new WaitForSeconds(duration);
         // deactivate the text container
         textContainer.SetActive(false);
+    }
+
+    private void ShowHowToPlay()
+    {
+        uiPanel.SetActive(false);
+        howToPlayCanvas.SetActive(true);
+    }
+
+    private void HideHowToPlay()
+    {
+        howToPlayCanvas.SetActive(false);
+        uiPanel.SetActive(true);
     }
 
     private void ExitGame()
