@@ -6,11 +6,11 @@ using System.Collections;
 public class GameControl : MonoBehaviour
 {
     public GameObject uiPanel; // UI gameobject
+    public GameObject textContainer; // controls
+    public GameObject howToPlayCanvas; // How to Play canvas
     public Button startButton;
     public Button exitButton;
-    public GameObject textContainer; // controls
     public Button infoButton; // "How to Play" button
-    public GameObject howToPlayCanvas; // How to Play canvas
     public Button backButton; // back button to return from "How to Play"
     public Button infoStartButton;
 
