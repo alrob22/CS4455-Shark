@@ -11,7 +11,11 @@ public class GameTimer : MonoBehaviour
     public TextMeshProUGUI timerText;
     public Button mainMenuStartButton;
     public Button infoScreenStartButton;
+    public Button loseScreenMenuButton;
     public GameObject loseScreenCanvas;
+    public GameObject mainMenuCanvas;
+    public TextMeshProUGUI timeUpText;
+    public TextMeshProUGUI sharkHitText;
     private bool isGamePlaying = false;
 
     void Start()
@@ -21,6 +25,8 @@ public class GameTimer : MonoBehaviour
         mainMenuStartButton.onClick.AddListener(StartGame);
         infoScreenStartButton.onClick.AddListener(StartGame);
         loseScreenCanvas.SetActive(false);
+        timeUpText.gameObject.SetActive(false);
+        sharkHitText.gameObject.SetActive(false);
     }
 
     void Update()
@@ -51,15 +57,36 @@ public class GameTimer : MonoBehaviour
         timerText.gameObject.SetActive(true);
         mainMenuStartButton.gameObject.SetActive(false);
         infoScreenStartButton.gameObject.SetActive(false);
+        loseScreenCanvas.SetActive(false);
+        timeUpText.gameObject.SetActive(false);
+        sharkHitText.gameObject.SetActive(false);
     }
 
     void OnTimerEnd()
     {
         Debug.Log("Timer has ended!");
+        ShowLoseScreen(timeUpText);
+    }
+
+    void ShowLoseScreen(TextMeshProUGUI loseMessage)
+    {
+        loseMessage.gameObject.SetActive(true);
         loseScreenCanvas.SetActive(true);
         isGamePlaying = false;
         timerText.gameObject.SetActive(false);
         mainMenuStartButton.gameObject.SetActive(true);
         infoScreenStartButton.gameObject.SetActive(true);
+    }
+
+    public void SharkHit()
+    {
+        Debug.Log("A shark hit the kayak!");
+        ShowLoseScreen(sharkHitText);
+    }
+
+    public void GoToMainMenu()
+    {
+        loseScreenCanvas.SetActive(false);
+        mainMenuCanvas.SetActive(true);
     }
 }
