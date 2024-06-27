@@ -1939,6 +1939,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shark (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5700429781800439493, guid: e9a37cbfbd1881741804ce195ae6a257, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9a37cbfbd1881741804ce195ae6a257, type: 3}
 --- !u!1 &594261617
@@ -2555,6 +2559,10 @@ PrefabInstance:
     - target: {fileID: 5700429781800439493, guid: e9a37cbfbd1881741804ce195ae6a257, type: 3}
       propertyPath: m_Name
       value: Shark
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700429781800439493, guid: e9a37cbfbd1881741804ce195ae6a257, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9a37cbfbd1881741804ce195ae6a257, type: 3}
@@ -3299,6 +3307,10 @@ PrefabInstance:
     - target: {fileID: 5700429781800439493, guid: e9a37cbfbd1881741804ce195ae6a257, type: 3}
       propertyPath: m_Name
       value: Shark (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700429781800439493, guid: e9a37cbfbd1881741804ce195ae6a257, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9a37cbfbd1881741804ce195ae6a257, type: 3}
@@ -4256,6 +4268,10 @@ PrefabInstance:
     - target: {fileID: 5700429781800439493, guid: e9a37cbfbd1881741804ce195ae6a257, type: 3}
       propertyPath: m_Name
       value: Shark (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700429781800439493, guid: e9a37cbfbd1881741804ce195ae6a257, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9a37cbfbd1881741804ce195ae6a257, type: 3}
@@ -5379,6 +5395,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shark (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5700429781800439493, guid: e9a37cbfbd1881741804ce195ae6a257, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9a37cbfbd1881741804ce195ae6a257, type: 3}
 --- !u!1 &1620483571
@@ -5515,6 +5535,10 @@ PrefabInstance:
     - target: {fileID: 5700429781800439493, guid: e9a37cbfbd1881741804ce195ae6a257, type: 3}
       propertyPath: m_Name
       value: Shark (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700429781800439493, guid: e9a37cbfbd1881741804ce195ae6a257, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9a37cbfbd1881741804ce195ae6a257, type: 3}
@@ -7097,6 +7121,10 @@ PrefabInstance:
     - target: {fileID: 5700429781800439493, guid: e9a37cbfbd1881741804ce195ae6a257, type: 3}
       propertyPath: m_Name
       value: Shark (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700429781800439493, guid: e9a37cbfbd1881741804ce195ae6a257, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9a37cbfbd1881741804ce195ae6a257, type: 3}
