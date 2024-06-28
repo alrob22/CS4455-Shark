@@ -94,11 +94,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7293084300367006492}
   - component: {fileID: 2152014389614936476}
-  - component: {fileID: 2152014389614936466}
-  - component: {fileID: 2152014389614936467}
   - component: {fileID: 2152014389614936478}
   - component: {fileID: 2152014389614936477}
   - component: {fileID: 125881902125352892}
+  - component: {fileID: 9222558752271556889}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -139,36 +138,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 84
   m_CollisionDetection: 0
---- !u!114 &2152014389614936466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8470729272629982272}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 959fefc3680ac9c4fac7ef073bc459cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InputMapToCircular: 1
-  forwardInputFilter: 5
-  turnInputFilter: 5
-  forwardSpeedLimit: 5
---- !u!114 &2152014389614936467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8470729272629982272}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04d555bc5417c4d458288f5c5d949154, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forwardMaxSpeed: 5
-  turnMaxSpeed: 5
 --- !u!114 &2152014389614936478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,24 +157,27 @@ MonoBehaviour:
   textLeft: {fileID: 0}
   textRight: {fileID: 0}
   textS: {fileID: 0}
-  textCTRL: {fileID: 0}
-  textSpace: {fileID: 0}
-  normalPaddleTurnForce: 5
-  normalPaddleForwardForce: 100
-  normalRudderForce: 10
+  textW: {fileID: 0}
+  forwardSlider: {fileID: 0}
+  normalPaddleTurnForce: 25
+  normalPaddleForwardForce: 200
+  normalRudderForce: 25
   normalSmoothForceSpeed: 0.8
-  backPaddleForce: 20
-  widePaddleTurnForce: 30
+  backPaddleForce: 50
+  widePaddleTurnForce: 40
   widePaddleForwardForce: 3
   wideSmoothForceSpeed: 0.5
-  sidePaddleForce: 25
+  sidePaddleForce: 75
   sideSmoothForceSpeed: 0.5
   edgeTurnInfluence: 5
   edgeSideInfluence: 3
+  forwardForce: 300
+  forwardTimer: 10
+  forwardTimerSpeed: 4
   currentStroke: 0
   lastStroke: 1
   currentStrokeState: 0
-  isMovingWater: 0
+  isMovingWater: 1
   movingWaterForce: 2
   waterDirDownForce: 2
   waterDownForceAngle: 10
@@ -255,6 +227,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9222558752271556889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8470729272629982272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe476589bfea3424fbafde83a1c3661f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameTimer: {fileID: 0}
 --- !u!1001 &125881901640332330
 PrefabInstance:
   m_ObjectHideFlags: 0

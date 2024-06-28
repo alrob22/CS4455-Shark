@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
+using UnityEngine.UI;
 
 public class KayakMovement : MonoBehaviour
 {
@@ -14,8 +16,10 @@ public class KayakMovement : MonoBehaviour
     public TextMeshProUGUI textLeft;
     public TextMeshProUGUI textRight;
     public TextMeshProUGUI textS;
-    public TextMeshProUGUI textCTRL;
-    public TextMeshProUGUI textSpace;
+    public TextMeshProUGUI textW;
+    public Slider forwardSlider;
+    //public TextMeshProUGUI textCTRL;
+    //public TextMeshProUGUI textSpace;
 
     #endregion
 
@@ -41,6 +45,13 @@ public class KayakMovement : MonoBehaviour
     public float edgeTurnInfluence = 5f;
     public float edgeSideInfluence = 5f;
 
+    [Header("Forward")]
+    public float forwardForce = 10f;
+    public float forwardTimer = 10f;
+    public float forwardTimerSpeed = 1f;
+    private float forwardTimerCap;
+    private bool goForward = true;
+
     [Header("Stroke State")]
     public Stroke currentStroke = Stroke.None;
     public Stroke lastStroke = Stroke.None;
@@ -63,6 +74,7 @@ public class KayakMovement : MonoBehaviour
     private float backStrokeAxis;
     private float rudderAxis;
     private float edgeAxis;
+    private float forwardAxis;
 
     public float NormalStrokeAxis { get { return normalStrokeAxis; } }
     public float WideStrokeAxis { get { return wideStrokeAxis; } }
@@ -70,6 +82,7 @@ public class KayakMovement : MonoBehaviour
     public float BackStrokeAxis { get { return backStrokeAxis; } }
     public float RudderAxis { get { return rudderAxis; } }
     public float EdgeAxis { get { return edgeAxis; } }
+    public float ForwardAxis {  get { return forwardAxis; } }
 
     private float currentPaddleNormalForwardForce = 0f;
     private float currentPaddleWideForwardForce = 0f;
@@ -93,6 +106,8 @@ public class KayakMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
 
+        forwardTimerCap = forwardTimer;
+        forwardSlider.maxValue = forwardTimerCap;
         currentStrokeState = StrokeState.Ready;
     }
 
@@ -117,6 +132,7 @@ public class KayakMovement : MonoBehaviour
         backStrokeAxis = playerInput.actions["BackStroke"].ReadValue<float>();
         rudderAxis = playerInput.actions["RudderAxis"].ReadValue<float>();
         edgeAxis = playerInput.actions["EdgeAxis"].ReadValue<float>();
+        forwardAxis = playerInput.actions["Forward"].ReadValue<float>();
 
         if (playerInput.actions["Escape"].triggered)
         {
@@ -276,6 +292,32 @@ public class KayakMovement : MonoBehaviour
             }
         }
 
+        // Auto forward movement
+        if (forwardAxis > 0 && goForward)
+        {
+            if (forwardTimer > 0)
+            {
+                forwardTimer -= forwardTimerSpeed * Time.deltaTime;
+
+                rb.AddForce(transform.forward * forwardAxis * forwardForce * Time.deltaTime);
+            }
+        } else if (forwardAxis == 0 && forwardTimer < forwardTimerCap && goForward)
+        {
+            goForward = false;
+        } else if (forwardAxis == 0 && !goForward)
+        {
+            if (forwardTimer < forwardTimerCap)
+            {
+                forwardTimer += (forwardTimerSpeed / 3) * Time.deltaTime;
+            } else
+            {
+                goForward = true;
+            }
+        }
+
+        Debug.Log("forwardTimer = " + forwardTimer);
+        Debug.Log("goForward = " + goForward);
+
         // Handle boat ruddering
         if (currentStrokeState == StrokeState.Ruddering)
         {
@@ -358,20 +400,32 @@ public class KayakMovement : MonoBehaviour
             textS.color = Color.black;
         }
 
+        // auto forward- W
+        if (forwardAxis != 0)
+        {
+            textW.color = Color.yellow;
+        }
+        else
+        {
+            textW.color = Color.black;
+        }
+
+        forwardSlider.value = forwardTimer;
+
         // edge/lean- CTRL/Space
-        if (edgeAxis < 0)
-        {
-            textCTRL.color = Color.yellow;
-        } else
-        {
-            textCTRL.color = Color.black;
-        }
-        if (edgeAxis > 0)
-        {
-            textSpace.color = Color.yellow;
-        } else
-        {
-            textSpace.color = Color.black;
-        }
+        //if (edgeAxis < 0)
+        //{
+        //    textCTRL.color = Color.yellow;
+        //} else
+        //{
+        //    textCTRL.color = Color.black;
+        //}
+        //if (edgeAxis > 0)
+        //{
+        //    textSpace.color = Color.yellow;
+        //} else
+        //{
+        //    textSpace.color = Color.black;
+        //}
     }
 }

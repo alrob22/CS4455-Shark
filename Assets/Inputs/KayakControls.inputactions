@@ -1,5 +1,5 @@
 {
-    "name": "PlayerControls",
+    "name": "KayakControls",
     "maps": [
         {
             "name": "Player",
@@ -33,6 +33,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "BackStroke",
+                    "type": "PassThrough",
+                    "id": "cc8e623e-db6a-4fc2-8f6e-0b3a8b748239",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "RudderAxis",
                     "type": "PassThrough",
                     "id": "5cb49621-c06c-4b76-a6ae-1dca66c8cf47",
@@ -51,9 +60,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "BackStroke",
+                    "name": "Forward",
                     "type": "PassThrough",
-                    "id": "cc8e623e-db6a-4fc2-8f6e-0b3a8b748239",
+                    "id": "d2d4b38e-fb94-4445-bd64-e922ebb575d8",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
@@ -120,7 +129,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KB",
                     "action": "NormalStroke",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -131,7 +140,7 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KB",
                     "action": "NormalStroke",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -402,6 +411,17 @@
                 },
                 {
                     "name": "",
+                    "id": "8075e550-6163-4d27-a9d0-f9a392e97b29",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KB;Gamepad",
+                    "action": "Escape",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "7e039ad7-dd25-4bde-80f5-465c9da9ec3c",
                     "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
@@ -424,12 +444,23 @@
                 },
                 {
                     "name": "",
-                    "id": "8075e550-6163-4d27-a9d0-f9a392e97b29",
-                    "path": "<Keyboard>/escape",
+                    "id": "89302d0c-4d1d-47b8-b562-2acb2156860c",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "AxisDeadzone(min=0.25)",
+                    "groups": "Gamepad",
+                    "action": "Forward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "db5305b3-78c7-4ac8-9ecb-7575a077d282",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KB;Gamepad",
-                    "action": "Escape",
+                    "groups": "KB",
+                    "action": "Forward",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
