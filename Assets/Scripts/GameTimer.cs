@@ -16,7 +16,7 @@ public class GameTimer : MonoBehaviour
     public GameObject mainMenuCanvas;
     public TextMeshProUGUI timeUpText;
     public TextMeshProUGUI sharkHitText;
-    private bool isGamePlaying = false;
+    public bool isGamePlaying = false;
 
     void Start()
     {

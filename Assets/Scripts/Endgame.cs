@@ -9,21 +9,25 @@ public class Endgame : MonoBehaviour
     public Collider endtrigger;
     public TextMeshProUGUI timerText;
 
-    bool playerIsInside;
+    public bool playerIsInside;
+
+    public GameTimer gameclock;
 
     // Start is called before the first frame update
     void Start()
     {
-        endtrigger = this.GetComponent<Collider>();
         playerIsInside = false;
     }
 
-    void OnCollisionEnter() {
-        playerIsInside = true;
+    void OnTriggerEnter(Collider obj) {
+        if (obj.gameObject.tag == "Player") {
+            gameclock.isGamePlaying = false;
+            playerIsInside = true;
+        }
     }
 
 //turn off the game clock and say yippee you won
-    void LateUpdate() {
+    void Update() {
         if (playerIsInside) {
             timerText.text = "You won! Yippee!";
         }
