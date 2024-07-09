@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class KayakMovement : MonoBehaviour
 {
-    #region Texts 
+    #region UI 
     public TextMeshProUGUI textA;
     public TextMeshProUGUI textD;
     public TextMeshProUGUI textQ;
@@ -18,6 +18,7 @@ public class KayakMovement : MonoBehaviour
     public TextMeshProUGUI textS;
     public TextMeshProUGUI textW;
     public Slider forwardSlider;
+    public Image sliderFill;
     //public TextMeshProUGUI textCTRL;
     //public TextMeshProUGUI textSpace;
 
@@ -98,6 +99,11 @@ public class KayakMovement : MonoBehaviour
 
     private Quaternion gravityAlignment = Quaternion.identity;
 
+    [Header("Camera")]
+    public Camera mainCam;
+    public Camera behindCam;
+    private float lookBehind;
+
     private Rigidbody rb;
     private PlayerInput playerInput;
 
@@ -106,9 +112,13 @@ public class KayakMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
 
+        currentStrokeState = StrokeState.Ready;
+
         forwardTimerCap = forwardTimer;
         forwardSlider.maxValue = forwardTimerCap;
-        currentStrokeState = StrokeState.Ready;
+
+        mainCam.enabled = true;
+        behindCam.enabled = false;
     }
 
     void Update()
@@ -133,11 +143,9 @@ public class KayakMovement : MonoBehaviour
         rudderAxis = playerInput.actions["RudderAxis"].ReadValue<float>();
         edgeAxis = playerInput.actions["EdgeAxis"].ReadValue<float>();
         forwardAxis = playerInput.actions["Forward"].ReadValue<float>();
+        lookBehind = playerInput.actions["LookBehind"].ReadValue<float>();
 
-        if (playerInput.actions["Escape"].triggered)
-        {
-            Application.Quit();
-        }
+        // remove w thing stopping
     }
 
     void SetStrokeState()
@@ -330,6 +338,17 @@ public class KayakMovement : MonoBehaviour
             rb.AddRelativeTorque(Vector3.up * edgeAxis * edgeTurnInfluence * Time.deltaTime);
             rb.AddForce(transform.right * edgeAxis * edgeSideInfluence * Time.deltaTime);
         }
+
+        // Handle camera movement
+        if (lookBehind > 0)
+        {
+            mainCam.enabled = false;
+            behindCam.enabled = true;
+        } else
+        {
+            mainCam.enabled = true;
+            behindCam.enabled = false;
+        }
     }
 
     void AlignRotation()
@@ -411,6 +430,13 @@ public class KayakMovement : MonoBehaviour
         }
 
         forwardSlider.value = forwardTimer;
+        if (forwardSlider.value == 0)
+        {
+            sliderFill.color = Color.black;
+        } else if (forwardSlider.value == forwardTimerCap)
+        {
+            sliderFill.color = Color.yellow;
+        }
 
         // edge/lean- CTRL/Space
         //if (edgeAxis < 0)

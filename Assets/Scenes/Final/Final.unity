@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 1.0495592, g: 0.5830435, b: 1.1841311, a: 1}
+  m_IndirectSpecularColor: {r: 0.23464039, g: 0.11816661, b: 0.752194, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4784,7 +4784,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Normal Stroke: \tA/D\nWide Stroke: \tQ/E\nBack Stroke: \tS\nSide Stroke:
-    \tL/R Arrow\nAuto-Forward:\tW"
+    \tL/R Arrow\nAuto-Forward:\thold W\nLook Behind:        Shift\nView Controls:     
+    C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4847,7 +4848,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -168.08032, w: -72.07059}
+  m_margin: {x: 0, y: 0, z: -168.08032, w: -120.62158}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5923,6 +5924,7 @@ MonoBehaviour:
   textS: {fileID: 1839218398}
   textW: {fileID: 0}
   forwardSlider: {fileID: 0}
+  sliderFill: {fileID: 0}
   normalPaddleTurnForce: 10
   normalPaddleForwardForce: 10
   normalRudderForce: 2
@@ -5948,6 +5950,8 @@ MonoBehaviour:
   whatIsWater:
     serializedVersion: 2
     m_Bits: 0
+  mainCam: {fileID: 0}
+  behindCam: {fileID: 0}
 --- !u!1 &1460023264
 GameObject:
   m_ObjectHideFlags: 0
@@ -8264,6 +8268,10 @@ PrefabInstance:
       propertyPath: textRight
       value: 
       objectReference: {fileID: 1772830043}
+    - target: {fileID: 2152014389614936478, guid: 7e13635671c8a5d408fc3bb6f8a0c80f, type: 3}
+      propertyPath: sliderFill
+      value: 
+      objectReference: {fileID: 1737211657}
     - target: {fileID: 2152014389614936478, guid: 7e13635671c8a5d408fc3bb6f8a0c80f, type: 3}
       propertyPath: forwardSlider
       value: 
