@@ -411,21 +411,16 @@ public class KayakMovement : MonoBehaviour
         }
 
         forwardSlider.value = forwardTimer;
+    }
+        public void IncreaseForwardForce(float boostAmount)
+    {
+        forwardForce += boostAmount;
+        StartCoroutine(ResetForwardForce(boostAmount));
+    }
 
-        // edge/lean- CTRL/Space
-        //if (edgeAxis < 0)
-        //{
-        //    textCTRL.color = Color.yellow;
-        //} else
-        //{
-        //    textCTRL.color = Color.black;
-        //}
-        //if (edgeAxis > 0)
-        //{
-        //    textSpace.color = Color.yellow;
-        //} else
-        //{
-        //    textSpace.color = Color.black;
-        //}
+        private IEnumerator ResetForwardForce(float boostAmount)
+    {
+        yield return new WaitForSeconds(3); // The boost lasts for 3 seconds
+        forwardForce -= boostAmount;
     }
 }
