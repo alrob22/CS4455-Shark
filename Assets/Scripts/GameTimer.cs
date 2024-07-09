@@ -17,6 +17,10 @@ public class GameTimer : MonoBehaviour
     public TextMeshProUGUI timeUpText;
     public TextMeshProUGUI sharkHitText;
     private bool isGamePlaying = false;
+    // player position when restarting
+    public GameObject player;
+    private Vector3 startingPosition;
+    private Quaternion startingRotation;
 
     void Start()
     {
@@ -27,6 +31,9 @@ public class GameTimer : MonoBehaviour
         loseScreenCanvas.SetActive(false);
         timeUpText.gameObject.SetActive(false);
         sharkHitText.gameObject.SetActive(false);
+        // player pos and rot
+        startingPosition = player.transform.position;
+        startingRotation = player.transform.rotation;
     }
 
     void Update()
@@ -88,5 +95,8 @@ public class GameTimer : MonoBehaviour
     {
         loseScreenCanvas.SetActive(false);
         mainMenuCanvas.SetActive(true);
+        // player pos and rot reset
+        player.transform.position = startingPosition;
+        player.transform.rotation = startingRotation;
     }
 }
