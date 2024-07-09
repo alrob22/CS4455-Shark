@@ -307,7 +307,7 @@ public class KayakMovement : MonoBehaviour
             {
                 forwardTimer -= forwardTimerSpeed * Time.deltaTime;
 
-                rb.AddForce(transform.forward * forwardAxis * forwardForce * Time.deltaTime);
+                rb.AddForce(transform.forward * forwardAxis * forwardForce * (Time.deltaTime * 1.5f));
             }
         } else if (forwardAxis == 0 && forwardTimer < forwardTimerCap && goForward)
         {
