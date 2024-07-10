@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 1.2803508, g: 0.7182695, b: 1.2765617, a: 1}
+  m_IndirectSpecularColor: {r: 1.314894, g: 0.7384065, b: 1.2900423, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -192,8 +192,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4286596607
-  m_fontColor: {r: 1, g: 0.27058825, b: 0.5019608, a: 1}
+    rgba: 4288448736
+  m_fontColor: {r: 0.8784314, g: 0.53333336, b: 0.6117647, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5024,7 +5024,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "View Controls:      C\nForward Boost:\thold W\nNormal Stroke: \tA/D\nWide
+  m_text: "View Controls:      C\nForward Boost:\tHold W\nNormal Stroke: \tA/D\nWide
     Stroke: \tQ/E\nBack Stroke: \tS\nSide Stroke: \tL/R Arrow\nLook Behind:       
     Shift"
   m_isRightToLeft: 0
@@ -6971,8 +6971,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4286596607
-  m_fontColor: {r: 1, g: 0.2688679, b: 0.5019479, a: 1}
+    rgba: 4288448736
+  m_fontColor: {r: 0.8784314, g: 0.53333336, b: 0.6117647, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7517,8 +7517,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4286596607
-  m_fontColor: {r: 1, g: 0.27058825, b: 0.5019608, a: 1}
+    rgba: 4288448736
+  m_fontColor: {r: 0.8784314, g: 0.53333336, b: 0.6117647, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
