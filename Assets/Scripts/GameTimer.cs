@@ -7,7 +7,7 @@ using TMPro;
 public class GameTimer : MonoBehaviour
 {
     public float startTime = 300f;
-    private float currentTime;
+    public float currentTime;
     public TextMeshProUGUI timerText;
     public Button mainMenuStartButton;
     public Button infoScreenStartButton;
@@ -62,11 +62,11 @@ public class GameTimer : MonoBehaviour
         isGamePlaying = true;
         currentTime = startTime;
         timerText.gameObject.SetActive(true);
-        mainMenuStartButton.gameObject.SetActive(false);
-        infoScreenStartButton.gameObject.SetActive(false);
-        loseScreenCanvas.SetActive(false);
-        timeUpText.gameObject.SetActive(false);
-        sharkHitText.gameObject.SetActive(false);
+        //mainMenuStartButton.gameObject.SetActive(false);
+        //infoScreenStartButton.gameObject.SetActive(false);
+        //loseScreenCanvas.SetActive(false);
+        //timeUpText.gameObject.SetActive(false);
+        //sharkHitText.gameObject.SetActive(false);
     }
 
     void OnTimerEnd()

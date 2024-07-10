@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 1.222502, g: 0.68449473, b: 1.2541056, a: 1}
+  m_IndirectSpecularColor: {r: 1.1507168, g: 0.6428638, b: 1.2253422, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -634,6 +634,7 @@ GameObject:
   - component: {fileID: 82899288}
   - component: {fileID: 82899287}
   - component: {fileID: 82899289}
+  - component: {fileID: 82899290}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -661,6 +662,7 @@ MonoBehaviour:
   infoButton: {fileID: 1377779799}
   backButton: {fileID: 371079645}
   infoStartButton: {fileID: 923876633}
+  infoStartButtonGO: {fileID: 923876631}
 --- !u!4 &82899288
 Transform:
   m_ObjectHideFlags: 0
@@ -689,6 +691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTime: 360
+  currentTime: 0
   timerText: {fileID: 1886963820}
   mainMenuStartButton: {fileID: 1254360409}
   infoScreenStartButton: {fileID: 923876633}
@@ -698,6 +701,22 @@ MonoBehaviour:
   timeUpText: {fileID: 287302980}
   sharkHitText: {fileID: 208600269}
   player: {fileID: 1476263300}
+--- !u!114 &82899290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82899286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cb213d3880d46f3801b795c20af33b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoCanvas: {fileID: 462425565}
+  player: {fileID: 1476263300}
+  timer: {fileID: 1886963818}
+  startButton: {fileID: 923876631}
 --- !u!1 &99455860
 GameObject:
   m_ObjectHideFlags: 0
