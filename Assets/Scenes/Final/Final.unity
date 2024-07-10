@@ -586,7 +586,7 @@ MonoBehaviour:
   infoButton: {fileID: 1377779799}
   backButton: {fileID: 371079645}
   infoStartButton: {fileID: 923876633}
-  infoStartButtonGO: {fileID: 0}
+  infoStartButtonGO: {fileID: 923876631}
 --- !u!4 &82899288
 Transform:
   m_ObjectHideFlags: 0
