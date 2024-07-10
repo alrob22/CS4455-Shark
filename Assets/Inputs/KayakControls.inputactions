@@ -69,13 +69,13 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Escape",
-                    "type": "Value",
+                    "name": "LookBehind",
+                    "type": "PassThrough",
                     "id": "d81e27ff-19e4-437a-ab5b-f8c6faad3413",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -412,11 +412,22 @@
                 {
                     "name": "",
                     "id": "8075e550-6163-4d27-a9d0-f9a392e97b29",
-                    "path": "<Keyboard>/escape",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KB;Gamepad",
-                    "action": "Escape",
+                    "groups": "KB",
+                    "action": "LookBehind",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "67884a07-1cd9-4c4d-888c-68c472a5877c",
+                    "path": "<Gamepad>/rightStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "LookBehind",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

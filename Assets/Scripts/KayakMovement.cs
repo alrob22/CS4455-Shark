@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class KayakMovement : MonoBehaviour
 {
-    #region Texts 
+    #region UI 
     public TextMeshProUGUI textA;
     public TextMeshProUGUI textD;
     public TextMeshProUGUI textQ;
@@ -18,6 +18,7 @@ public class KayakMovement : MonoBehaviour
     public TextMeshProUGUI textS;
     public TextMeshProUGUI textW;
     public Slider forwardSlider;
+    public Image sliderFill;
     //public TextMeshProUGUI textCTRL;
     //public TextMeshProUGUI textSpace;
 
@@ -98,6 +99,11 @@ public class KayakMovement : MonoBehaviour
 
     private Quaternion gravityAlignment = Quaternion.identity;
 
+    [Header("Camera")]
+    public Camera mainCam;
+    public Camera behindCam;
+    private float lookBehind;
+
     private Rigidbody rb;
     private PlayerInput playerInput;
 
@@ -106,9 +112,13 @@ public class KayakMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
 
+        currentStrokeState = StrokeState.Ready;
+
         forwardTimerCap = forwardTimer;
         forwardSlider.maxValue = forwardTimerCap;
-        currentStrokeState = StrokeState.Ready;
+
+        mainCam.enabled = true;
+        behindCam.enabled = false;
     }
 
     void Update()
@@ -133,11 +143,9 @@ public class KayakMovement : MonoBehaviour
         rudderAxis = playerInput.actions["RudderAxis"].ReadValue<float>();
         edgeAxis = playerInput.actions["EdgeAxis"].ReadValue<float>();
         forwardAxis = playerInput.actions["Forward"].ReadValue<float>();
+        lookBehind = playerInput.actions["LookBehind"].ReadValue<float>();
 
-        if (playerInput.actions["Escape"].triggered)
-        {
-            Application.Quit();
-        }
+        // remove w thing stopping
     }
 
     void SetStrokeState()
@@ -299,7 +307,7 @@ public class KayakMovement : MonoBehaviour
             {
                 forwardTimer -= forwardTimerSpeed * Time.deltaTime;
 
-                rb.AddForce(transform.forward * forwardAxis * forwardForce * Time.deltaTime);
+                rb.AddForce(transform.forward * forwardAxis * forwardForce * (Time.deltaTime * 1.5f));
             }
         } else if (forwardAxis == 0 && forwardTimer < forwardTimerCap && goForward)
         {
@@ -329,6 +337,17 @@ public class KayakMovement : MonoBehaviour
         {
             rb.AddRelativeTorque(Vector3.up * edgeAxis * edgeTurnInfluence * Time.deltaTime);
             rb.AddForce(transform.right * edgeAxis * edgeSideInfluence * Time.deltaTime);
+        }
+
+        // Handle camera movement
+        if (lookBehind > 0)
+        {
+            mainCam.enabled = false;
+            behindCam.enabled = true;
+        } else
+        {
+            mainCam.enabled = true;
+            behindCam.enabled = false;
         }
     }
 
@@ -411,12 +430,6 @@ public class KayakMovement : MonoBehaviour
         }
 
         forwardSlider.value = forwardTimer;
-    }
-        public void IncreaseForwardForce(float boostAmount)
-    {
-        forwardForce += boostAmount;
-        StartCoroutine(ResetForwardForce(boostAmount));
-    }
 
         private IEnumerator ResetForwardForce(float boostAmount)
     {
