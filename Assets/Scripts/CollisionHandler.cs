@@ -10,7 +10,7 @@ public class CollisionHandler : MonoBehaviour
         {
             KayakMovement kayakMovement = collision.GetComponent<KayakMovement>();
             if (kayakMovement != null) {
-                kayakMovement.ResetForwardForce(boost);
+                kayakMovement.IncreaseForwardForce(boost);
                 Debug.Log("Increased forward force by: " + boost);
             }
             Destroy(gameObject); 
