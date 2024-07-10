@@ -439,6 +439,13 @@ public class KayakMovement : MonoBehaviour
         forwardSlider.value = forwardTimer;
     }
 
+        public void IncreaseForwardForce(float boostAmount)
+    {
+        forwardForce += boostAmount;
+        Debug.Log("Forward force increased to: " + forwardForce);
+        StartCoroutine(ResetForwardForce(boostAmount));
+    }
+
     public IEnumerator ResetForwardForce(float boostAmount)
     {
         yield return new WaitForSeconds(3); // The boost lasts for 3 seconds
