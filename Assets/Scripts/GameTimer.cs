@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameTimer : MonoBehaviour
 {
@@ -61,6 +62,8 @@ public class GameTimer : MonoBehaviour
     {
         isGamePlaying = true;
         currentTime = startTime;
+        startingPosition = player.transform.position;
+        startingRotation = player.transform.rotation;
         timerText.gameObject.SetActive(true);
     }
 
@@ -88,10 +91,11 @@ public class GameTimer : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        loseScreenCanvas.SetActive(false);
-        mainMenuCanvas.SetActive(true);
-        // player pos and rot reset
-        player.transform.position = startingPosition;
-        player.transform.rotation = startingRotation;
+        SceneManager.LoadScene("Final");
+        //loseScreenCanvas.SetActive(false);
+        //mainMenuCanvas.SetActive(true);
+        //// player pos and rot reset
+        //player.transform.position = startingPosition;
+        //player.transform.rotation = startingRotation;
     }
 }
