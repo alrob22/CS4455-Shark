@@ -437,9 +437,16 @@ public class KayakMovement : MonoBehaviour
         }
 
         forwardSlider.value = forwardTimer;
+        if (forwardSlider.value == 0)
+        {
+            sliderFill.color = Color.black;
+        } else if (forwardSlider.value == forwardTimerCap)
+        {
+            sliderFill.color = Color.yellow;
+        }
     }
 
-        public void IncreaseForwardForce(float boostAmount)
+    public void IncreaseForwardForce(float boostAmount)
     {
         forwardForce += boostAmount;
         Debug.Log("Forward force increased to: " + forwardForce);
