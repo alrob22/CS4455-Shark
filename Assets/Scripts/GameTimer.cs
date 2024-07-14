@@ -14,6 +14,7 @@ public class GameTimer : MonoBehaviour
     public Button infoScreenStartButton;
     public Button loseScreenMenuButton;
     public GameObject loseScreenCanvas;
+    public GameObject winScreenCanvas;
     public GameObject mainMenuCanvas;
     public TextMeshProUGUI timeUpText;
     public TextMeshProUGUI sharkHitText;
@@ -30,6 +31,7 @@ public class GameTimer : MonoBehaviour
         mainMenuStartButton.onClick.AddListener(StartGame);
         infoScreenStartButton.onClick.AddListener(StartGame);
         loseScreenCanvas.SetActive(false);
+        winScreenCanvas.SetActive(false);
         timeUpText.gameObject.SetActive(false);
         sharkHitText.gameObject.SetActive(false);
         // player pos and rot
@@ -79,6 +81,15 @@ public class GameTimer : MonoBehaviour
         loseScreenCanvas.SetActive(true);
         isGamePlaying = false;
         timerText.gameObject.SetActive(false);
+        mainMenuStartButton.gameObject.SetActive(true);
+        infoScreenStartButton.gameObject.SetActive(true);
+    }
+
+    public void ShowWinScreen()
+    {
+        winScreenCanvas.SetActive(true);
+        isGamePlaying = false;
+        //timerText.gameObject.SetActive(false);
         mainMenuStartButton.gameObject.SetActive(true);
         infoScreenStartButton.gameObject.SetActive(true);
     }

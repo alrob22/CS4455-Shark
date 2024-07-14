@@ -71,4 +71,12 @@ public class EnemyAI : MonoBehaviour
                 break;
         }
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+            agent.isStopped = true;
+        }
+    }
 }
