@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3340648}
   - component: {fileID: 2358500}
   - component: {fileID: 6591330}
+  - component: {fileID: 3735168957769977815}
   m_Layer: 0
   m_Name: rock_p
   m_TagString: Untagged
@@ -93,7 +94,21 @@ BoxCollider:
   m_GameObject: {fileID: 182100}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.5164369, y: 2.17221, z: 1.467186}
   m_Center: {x: -0.04007548, y: 0.886105, z: -0.0048939586}
+--- !u!64 &3735168957769977815
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182100}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 02b8195cc92dcfe4da1770d5c860a657, type: 3}
