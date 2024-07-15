@@ -4,20 +4,39 @@ using UnityEngine;
 
 public class KayakerAnimations : MonoBehaviour
 {
+    public KayakMovement kayak;
+    public enum KayakerState {
+        paddleForward, paddleLeft, paddleRight, paddleWideLeft, paddleWideRight, paddleBack, idle
+    }
     Animator animComponent;
+    public KayakerState state;
     void Start()
     {
-     animComponent = GetComponent<Animator>(); //fetch the animator this script is attached to
+        state = KayakerState.idle;
+        animComponent = GetComponent<Animator>(); //fetch the animator this script is attached to
     }
 
     void Update()
     {
-        //Trigger animation when KeyCode.Space is pressed
-        if (Input.GetKey(KeyCode.W))
-        {
-            animComponent.SetBool("AutoForward", true);
-        } else {
-            animComponent.SetBool("AutoForward", false);
+        setState();
+        switch (state) {
+            case KayakerState.idle:
+            break;
+            case KayakerState.paddleForward:
+                animComponent.SetBool("AutoForward", true);
+            break;
+            case KayakerState.paddleLeft:
+            break;
+            case KayakerState.paddleRight:
+            break;
+            default:
+            break;
+        }
+    }
+
+    void setState() {
+        if (kayak.ForwardAxis != 0) {
+            state = KayakerState.paddleForward;
         }
     }
 }
