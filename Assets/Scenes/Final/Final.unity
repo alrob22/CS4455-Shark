@@ -7766,7 +7766,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -51.247864, y: 58.99035}
+  m_AnchoredPosition: {x: -52, y: 71}
   m_SizeDelta: {x: 158.67828, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1082260110
@@ -7791,7 +7791,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "View Controls:      C\nForward Boost:\tHold W\nNormal Stroke: \tA/D\nWide
     Stroke: \tQ/E\nBack Stroke: \tS\nSide Stroke: \tL/R Arrow\nLook Behind:       
-    Shift"
+    Shift\nPause:\t\tEsc"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8325,8 +8325,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -144, y: -89}
-  m_SizeDelta: {x: 284.4958, y: 183.1813}
+  m_AnchoredPosition: {x: -144, y: -82.99836}
+  m_SizeDelta: {x: 284.4958, y: 199.178}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1166480086
 MonoBehaviour:
@@ -11102,7 +11102,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -211.1879, y: 29.663338}
+  m_AnchoredPosition: {x: -211.1879, y: 43.663338}
   m_SizeDelta: {x: 150.1231, y: 41.3453}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1650771818
