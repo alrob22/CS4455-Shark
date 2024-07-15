@@ -21,6 +21,8 @@ public class KayakerAnimations : MonoBehaviour
         setState();
         switch (state) {
             case KayakerState.idle:
+                //add idle after button is released
+                animComponent.SetBool("AutoForward", false);
             break;
             case KayakerState.paddleForward:
                 animComponent.SetBool("AutoForward", true);
@@ -37,6 +39,8 @@ public class KayakerAnimations : MonoBehaviour
     void setState() {
         if (kayak.ForwardAxis != 0) {
             state = KayakerState.paddleForward;
+        } else {
+            state = KayakerState.idle;
         }
     }
 }
