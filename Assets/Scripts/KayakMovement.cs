@@ -51,7 +51,7 @@ public class KayakMovement : MonoBehaviour
     public float forwardTimer = 10f;
     public float forwardTimerSpeed = 1f;
     private float forwardTimerCap;
-    private bool goForward = true;
+    public bool goForward = true;
 
     [Header("Stroke State")]
     public Stroke currentStroke = Stroke.None;

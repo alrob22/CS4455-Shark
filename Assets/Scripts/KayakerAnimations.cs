@@ -19,6 +19,8 @@ public class KayakerAnimations : MonoBehaviour
     void Update()
     {
         setState();
+        animComponent.SetBool("autoforward", false);
+        animComponent.SetBool("back", false);
         //reset speed to default .25
         switch (state) {
             case KayakerState.idle:
@@ -28,8 +30,8 @@ public class KayakerAnimations : MonoBehaviour
             break;
             case KayakerState.paddleForward:
                 animComponent.SetBool("idle", false);
-                animComponent.SetBool("paddle", true);
-                animComponent.SetFloat("LeftOrRight", 0.5f);
+                animComponent.SetBool("autoforward", kayak.goForward);
+                //animComponent.SetFloat("LeftOrRight", 0.5f);
             break;
             case KayakerState.paddleLeft:
                 //set blend to 0
@@ -55,6 +57,10 @@ public class KayakerAnimations : MonoBehaviour
                 animComponent.SetBool("paddle", true);
                 animComponent.SetFloat("LeftOrRight", 2.0f);
                 //animComponent.SetTrigger("wide");
+            break;
+            case KayakerState.paddleBack:
+                animComponent.SetBool("idle", false);
+                animComponent.SetBool("back", true);
             break;
             default:
             break;
@@ -87,6 +93,9 @@ public class KayakerAnimations : MonoBehaviour
             } else if (Input.GetKey(KeyCode.E)) {
                 state = KayakerState.paddleWideRight;
             }
-    }
+    } else if(kayak.currentStroke == Stroke.Back) 
+        {
+            state = KayakerState.paddleBack;
+        }
 }
 }
