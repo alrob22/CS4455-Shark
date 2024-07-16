@@ -209,6 +209,7 @@ public class KayakMovement : MonoBehaviour
         {
             currentStrokeState = StrokeState.MidStroke;
         }
+        Debug.Log(currentStroke);
     }
 
     void ResetNormalStrokeForces()
@@ -323,8 +324,8 @@ public class KayakMovement : MonoBehaviour
             }
         }
 
-        Debug.Log("forwardTimer = " + forwardTimer);
-        Debug.Log("goForward = " + goForward);
+        //Debug.Log("forwardTimer = " + forwardTimer);
+        //Debug.Log("goForward = " + goForward);
 
         // Handle boat ruddering
         if (currentStrokeState == StrokeState.Ruddering)
