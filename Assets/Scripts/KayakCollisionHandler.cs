@@ -20,5 +20,18 @@ public class KayakCollisionHandler : MonoBehaviour
         {
             gameTimer.SharkHit();
         }
+
+        //if (collision.gameObject.CompareTag("Finish"))
+        //{
+        //    gameTimer.ShowWinScreen();
+        //}
+    }
+
+    void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+            gameTimer.ShowWinScreen();
+        }
     }
 }

@@ -13,6 +13,7 @@ public class GameControl : MonoBehaviour
     public Button infoButton; // "How to Play" button
     public Button backButton; // back button to return from "How to Play"
     public Button infoStartButton;
+    public GameObject infoStartButtonGO;
 
     private void Start()
     {
@@ -66,12 +67,14 @@ public class GameControl : MonoBehaviour
     {
         uiPanel.SetActive(false);
         howToPlayCanvas.SetActive(true);
+        infoStartButtonGO.SetActive(true);
     }
 
     private void HideHowToPlay()
     {
         howToPlayCanvas.SetActive(false);
         uiPanel.SetActive(true);
+        infoStartButtonGO.SetActive(false);
     }
 
     private void ExitGame()

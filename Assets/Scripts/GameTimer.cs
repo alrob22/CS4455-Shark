@@ -3,20 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameTimer : MonoBehaviour
 {
     public float startTime = 300f;
-    private float currentTime;
+    public float currentTime;
     public TextMeshProUGUI timerText;
     public Button mainMenuStartButton;
     public Button infoScreenStartButton;
     public Button loseScreenMenuButton;
     public GameObject loseScreenCanvas;
+    public GameObject winScreenCanvas;
     public GameObject mainMenuCanvas;
     public TextMeshProUGUI timeUpText;
     public TextMeshProUGUI sharkHitText;
     private bool isGamePlaying = false;
+    // player position when restarting
+    public GameObject player;
+    private Vector3 startingPosition;
+    private Quaternion startingRotation;
 
     void Start()
     {
@@ -25,8 +31,12 @@ public class GameTimer : MonoBehaviour
         mainMenuStartButton.onClick.AddListener(StartGame);
         infoScreenStartButton.onClick.AddListener(StartGame);
         loseScreenCanvas.SetActive(false);
+        winScreenCanvas.SetActive(false);
         timeUpText.gameObject.SetActive(false);
         sharkHitText.gameObject.SetActive(false);
+        // player pos and rot
+        startingPosition = player.transform.position;
+        startingRotation = player.transform.rotation;
     }
 
     void Update()
@@ -54,12 +64,9 @@ public class GameTimer : MonoBehaviour
     {
         isGamePlaying = true;
         currentTime = startTime;
+        startingPosition = player.transform.position;
+        startingRotation = player.transform.rotation;
         timerText.gameObject.SetActive(true);
-        mainMenuStartButton.gameObject.SetActive(false);
-        infoScreenStartButton.gameObject.SetActive(false);
-        loseScreenCanvas.SetActive(false);
-        timeUpText.gameObject.SetActive(false);
-        sharkHitText.gameObject.SetActive(false);
     }
 
     void OnTimerEnd()
@@ -78,6 +85,15 @@ public class GameTimer : MonoBehaviour
         infoScreenStartButton.gameObject.SetActive(true);
     }
 
+    public void ShowWinScreen()
+    {
+        winScreenCanvas.SetActive(true);
+        isGamePlaying = false;
+        //timerText.gameObject.SetActive(false);
+        mainMenuStartButton.gameObject.SetActive(true);
+        infoScreenStartButton.gameObject.SetActive(true);
+    }
+
     public void SharkHit()
     {
         Debug.Log("A shark hit the kayak!");
@@ -86,7 +102,11 @@ public class GameTimer : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        loseScreenCanvas.SetActive(false);
-        mainMenuCanvas.SetActive(true);
+        SceneManager.LoadScene("Final");
+        //loseScreenCanvas.SetActive(false);
+        //mainMenuCanvas.SetActive(true);
+        //// player pos and rot reset
+        //player.transform.position = startingPosition;
+        //player.transform.rotation = startingRotation;
     }
 }

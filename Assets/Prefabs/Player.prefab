@@ -453,7 +453,7 @@ MonoBehaviour:
   normalRudderForce: 25
   normalSmoothForceSpeed: 0.8
   backPaddleForce: 100
-  widePaddleTurnForce: 80
+  widePaddleTurnForce: 70
   widePaddleForwardForce: 3
   wideSmoothForceSpeed: 0.5
   sidePaddleForce: 150

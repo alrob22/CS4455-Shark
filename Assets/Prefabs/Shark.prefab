@@ -180,8 +180,8 @@ MonoBehaviour:
   anim: {fileID: 991330989}
   player: {fileID: 0}
   patrolPos: {fileID: 185898456}
-  patrolSpeed: 45
-  chaseDist: 35
+  patrolSpeed: 50
+  chaseDist: 40
   attackDist: 15
   state: 0
 --- !u!195 &1695408714093343301
@@ -194,8 +194,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 5
+  m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
