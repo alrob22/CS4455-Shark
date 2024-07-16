@@ -1,13 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-
 public class CollisionHandler : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    public float boost = 25f;
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            gameObject.SetActive(false);
-            Destroy(gameObject);
+            KayakMovement kayakMovement = collision.GetComponent<KayakMovement>();
+            if (kayakMovement != null) {
+                kayakMovement.IncreaseForwardForce(boost);
+                Debug.Log("Increased forward force by: " + boost);
+            }
+            Destroy(gameObject); 
         }
     }
 }

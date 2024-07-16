@@ -367,14 +367,16 @@ public class KayakMovement : MonoBehaviour
         if (normalStrokeAxis < 0)
         {
             textA.color = Color.yellow;
-        } else
+        }
+        else
         {
             textA.color = Color.black;
         }
         if (normalStrokeAxis > 0)
         {
             textD.color = Color.yellow;
-        } else
+        }
+        else
         {
             textD.color = Color.black;
         }
@@ -383,14 +385,16 @@ public class KayakMovement : MonoBehaviour
         if (wideStrokeAxis < 0)
         {
             textQ.color = Color.yellow;
-        } else
+        }
+        else
         {
             textQ.color = Color.black;
         }
         if (wideStrokeAxis > 0)
         {
             textE.color = Color.yellow;
-        } else
+        }
+        else
         {
             textE.color = Color.black;
         }
@@ -399,14 +403,16 @@ public class KayakMovement : MonoBehaviour
         if (sideStrokeAxis < 0)
         {
             textLeft.color = Color.yellow;
-        } else
+        }
+        else
         {
             textLeft.color = Color.black;
         }
         if (sideStrokeAxis > 0)
         {
             textRight.color = Color.yellow;
-        } else
+        }
+        else
         {
             textRight.color = Color.black;
         }
@@ -415,7 +421,8 @@ public class KayakMovement : MonoBehaviour
         if (backStrokeAxis != 0)
         {
             textS.color = Color.yellow;
-        } else
+        }
+        else
         {
             textS.color = Color.black;
         }
@@ -438,21 +445,18 @@ public class KayakMovement : MonoBehaviour
         {
             sliderFill.color = Color.yellow;
         }
+    }
 
-        // edge/lean- CTRL/Space
-        //if (edgeAxis < 0)
-        //{
-        //    textCTRL.color = Color.yellow;
-        //} else
-        //{
-        //    textCTRL.color = Color.black;
-        //}
-        //if (edgeAxis > 0)
-        //{
-        //    textSpace.color = Color.yellow;
-        //} else
-        //{
-        //    textSpace.color = Color.black;
-        //}
+    public void IncreaseForwardForce(float boostAmount)
+    {
+        forwardForce += boostAmount;
+        Debug.Log("Forward force increased to: " + forwardForce);
+        StartCoroutine(ResetForwardForce(boostAmount));
+    }
+
+    public IEnumerator ResetForwardForce(float boostAmount)
+    {
+        yield return new WaitForSeconds(3); // The boost lasts for 3 seconds
+        forwardForce -= boostAmount;
     }
 }
