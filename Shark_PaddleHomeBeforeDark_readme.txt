@@ -16,7 +16,8 @@ Observable technical requirements:
 - Background music at starting and ending areas
 
 Known problem areas: 
-//
+- skybox won't reset back to light when restarting game from pause menu but works
+when you re-launch the game
 
 Team Contributions/Manifest:
 
@@ -53,16 +54,15 @@ Created a timer that, when it runs out, opens the Game Over screen
 
 Maddi:
 Player Character
-Made player model
-Adjusted player 3rd person camera
-Updating player movement speeds
-Rigging player model
-Player animations (maybe if I can figure out rigging)
+- Made player model
+- Adjusted player 3rd person camera
+- Updating player movement speeds
+- Rigging player model
 End area
-Made ending area house model
+- Made ending area house model
 Skybox
-Added skybox textures
-Coded color change script (ColorChange.cs) for skybox to change color as time runs out
+- Added skybox textures
+- Coded color change script (ColorChange.cs) for skybox to change color as time runs out
 
 Aden:
 - Player controls
