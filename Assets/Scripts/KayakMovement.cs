@@ -110,6 +110,10 @@ public class KayakMovement : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+            if (rb == null)
+    {
+        Debug.LogError("Rigidbody component not found!");
+    }
         playerInput = GetComponent<PlayerInput>();
 
         currentStrokeState = StrokeState.Ready;
@@ -449,7 +453,8 @@ public class KayakMovement : MonoBehaviour
 
     public void IncreaseForwardForce(float boostAmount)
     {
-        forwardForce += boostAmount;
+        //forwardForce += boostAmount;
+        rb.AddForce(transform.forward * boostAmount, ForceMode.VelocityChange);
         Debug.Log("Forward force increased to: " + forwardForce);
         StartCoroutine(ResetForwardForce(boostAmount));
     }
