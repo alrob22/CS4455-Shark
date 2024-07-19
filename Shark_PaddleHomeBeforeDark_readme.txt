@@ -9,7 +9,7 @@ Observable technical requirements:
 - Main character with player input immediately visible as playable character
 - AI entities in the form of shark enemies present in various locations throughout the level
     - Patrol, Chase, and Attack states
-- Animation via circling during Patrol and opening their mouth to attack during Attack
+- Animation via player controls and sharks circling during Patrol and opening their mouth to attack during Attack
 - Physics present in interactions with environment, obstacles, collectibles, and sharks
 - UI implemented throughout entire game (lose screen happens when player gets attacked by shark or timer runs out, and win screen happens when player reaches the end)
 - Sound effects when player paddles
