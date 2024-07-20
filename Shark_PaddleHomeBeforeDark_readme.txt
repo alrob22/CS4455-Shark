@@ -18,6 +18,8 @@ Observable technical requirements:
 Known problem areas: 
 - skybox won't reset back to light when restarting game from pause menu but works
 when you re-launch the game
+- autoforward W animations will play regardless of having no stamina
+- no sfx during autoforward
 
 Team Contributions/Manifest:
 
@@ -31,6 +33,10 @@ Coded ending area to turn off game timer and indicate player win
 Created map and terrain
 Created water
 Painted terrain starting and ending areas
+Created 3 controller animations
+Organized animation controller
+Created animation scripts
+Modified player prefab with animated paddle and arms
 
 Kareena:
 Added collectable and obstacle prefabs
