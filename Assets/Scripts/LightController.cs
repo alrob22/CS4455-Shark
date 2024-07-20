@@ -6,11 +6,15 @@ public class LightController : MonoBehaviour
     public float dimmingDuration = 360.0f;
 
     private Light directionalLight; 
+    private float startTime;
 
     public Color startColor = Color.yellow; 
     public Color endColor = Color.black; 
 
     private void Start() {
+        initializeLight();
+    }
+    private void initializeLight() {
         GameObject lightObject = GameObject.Find(lightGameObjectName);
         if (lightObject != null)
         {
@@ -20,8 +24,7 @@ public class LightController : MonoBehaviour
                 Debug.LogError("No Light component found on the GameObject named " + lightGameObjectName);
             }
             else {
-                directionalLight.color = startColor;
-                directionalLight.intensity = 1.0f; 
+                ResetLight();
             }
         }
         else
@@ -32,9 +35,19 @@ public class LightController : MonoBehaviour
 
     private void Update() {
         if (directionalLight != null) {
-            float lerpFactor = Mathf.Clamp01(Time.time / dimmingDuration);
+            float elapsedTime = Time.time - startTime;
+            float lerpFactor = Mathf.Clamp01(elapsedTime / dimmingDuration);
+            //float lerpFactor = Mathf.Clamp01(Time.time / dimmingDuration);
             directionalLight.intensity = Mathf.Lerp(1.0f, 0.0f, lerpFactor);
             directionalLight.color = Color.Lerp(startColor, endColor, lerpFactor);
+        }
+    }
+
+    public void ResetLight() {
+        if (directionalLight != null) {
+            startTime = Time.time; // Reset the start time
+            directionalLight.color = startColor;
+            directionalLight.intensity = 1.0f; 
         }
     }
 }
