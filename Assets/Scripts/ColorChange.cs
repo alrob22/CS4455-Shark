@@ -11,6 +11,9 @@ public class ColorChange : MonoBehaviour
     public float duration = 360.0f;
     public float dimmingDuration = 360.0f; 
     private Material skyboxMaterial;
+    public Color skyboxColor;
+    public float dimmingLerp;
+    public float colorLerp;
 
     private void Start() {
         skyboxMaterial = RenderSettings.skybox;
@@ -20,12 +23,19 @@ public class ColorChange : MonoBehaviour
     }
 
     private void Update() {
-        float colorLerp = Mathf.PingPong(Time.time / duration, 1f);
-        float dimmingLerp = Mathf.Clamp01(Time.time / dimmingDuration);
-        Color skyboxColor = Color.Lerp(DefaultColor, HighlightColor, colorLerp);
+        colorLerp = Mathf.PingPong(Time.time / duration, 1f);
+        dimmingLerp = Mathf.Clamp01(Time.time / dimmingDuration);
+        skyboxColor = Color.Lerp(DefaultColor, HighlightColor, colorLerp);
         skyboxColor *= 1 - dimmingLerp;
         if (skyboxMaterial != null) {
             skyboxMaterial.SetColor("_Tint", skyboxColor);
         }
+    }
+
+    public void ResetColors() {
+        dimmingLerp = 0;
+        colorLerp = 0;
+        skyboxMaterial = RenderSettings.skybox;
+        skyboxMaterial.SetColor("_Tint", DefaultColor);
     }
 }

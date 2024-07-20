@@ -23,6 +23,8 @@ public class GameTimer : MonoBehaviour
     public GameObject player;
     private Vector3 startingPosition;
     private Quaternion startingRotation;
+    public ColorChange colorChangeScript;
+
 
     void Start()
     {
@@ -37,6 +39,10 @@ public class GameTimer : MonoBehaviour
         // player pos and rot
         startingPosition = player.transform.position;
         startingRotation = player.transform.rotation;
+        if (colorChangeScript != null)
+        {
+            colorChangeScript.ResetColors(); 
+        }
     }
 
     void Update()
@@ -83,6 +89,13 @@ public class GameTimer : MonoBehaviour
         timerText.gameObject.SetActive(false);
         mainMenuStartButton.gameObject.SetActive(true);
         infoScreenStartButton.gameObject.SetActive(true);
+        resetSkybox();
+    }
+
+    public void resetSkybox() {
+        if (isGamePlaying == false) {
+            colorChangeScript.ResetColors();
+        }
     }
 
     public void ShowWinScreen()
@@ -92,6 +105,7 @@ public class GameTimer : MonoBehaviour
         //timerText.gameObject.SetActive(false);
         mainMenuStartButton.gameObject.SetActive(true);
         infoScreenStartButton.gameObject.SetActive(true);
+        resetSkybox();
     }
 
     public void SharkHit()

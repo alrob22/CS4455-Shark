@@ -14,9 +14,17 @@ public class GameControl : MonoBehaviour
     public Button backButton; // back button to return from "How to Play"
     public Button infoStartButton;
     public GameObject infoStartButtonGO;
+    public ColorChange colorChangeScript;
+    public LightController lightControllerScript;
 
     private void Start()
     {
+        if (colorChangeScript == null) {
+            colorChangeScript = FindObjectOfType<ColorChange>();
+        }
+        if (lightControllerScript == null) {
+            lightControllerScript = FindObjectOfType<LightController>();
+        }
         Time.timeScale = 0;
         howToPlayCanvas.SetActive(false);
         // listeners to the buttons
@@ -27,8 +35,14 @@ public class GameControl : MonoBehaviour
         infoStartButton.onClick.AddListener(StartGame);
     }
 
-    private void StartGame()
-    {
+    private void StartGame() {
+        colorChangeScript.ResetColors();
+        if (lightControllerScript != null) {
+            Debug.Log("Calling ResetLight");
+            lightControllerScript.ResetLight();
+        } else {
+            Debug.LogError("lightControllerScript is null");
+        }
         Time.timeScale = 1;
         // deactivate the UI panel
         uiPanel.SetActive(false);

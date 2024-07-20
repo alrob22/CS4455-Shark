@@ -838,6 +838,8 @@ MonoBehaviour:
   backButton: {fileID: 371079645}
   infoStartButton: {fileID: 923876633}
   infoStartButtonGO: {fileID: 923876631}
+  colorChangeScript: {fileID: 0}
+  lightControllerScript: {fileID: 0}
 --- !u!4 &82899288
 Transform:
   m_ObjectHideFlags: 0
@@ -877,6 +879,7 @@ MonoBehaviour:
   timeUpText: {fileID: 287302980}
   sharkHitText: {fileID: 208600269}
   player: {fileID: 8372521049127128695}
+  colorChangeScript: {fileID: 0}
 --- !u!114 &82899290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12037,7 +12040,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1774442793}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aeee5a5d5d16f5e40aacbf8131a6bf79, type: 3}
+  m_Script: {fileID: 11500000, guid: 8297f3103b4547946b6d2041e4d555e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lightGameObjectName: Directional Light
@@ -14614,6 +14617,7 @@ GameObject:
   - component: {fileID: 125881902579461712}
   - component: {fileID: 125881902579461714}
   - component: {fileID: 125881902579461713}
+  - component: {fileID: 125881902579461716}
   m_Layer: 0
   m_Name: behindCam
   m_TagString: Untagged
@@ -14621,6 +14625,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &125881902579461716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125881902579461715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd00bd14b092a4e439dcc9440613e53b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultColor: {r: 1, g: 0.56289303, b: 1, a: 1}
+  HighlightColor: {r: 0.13249072, g: 0.19654584, b: 0.48427665, a: 1}
+  ambLightStart: {r: 1, g: 1, b: 1, a: 1}
+  ambEnd: {r: 0, g: 0, b: 0, a: 1}
+  duration: 360
+  dimmingDuration: 360
+  skyboxColor: {r: 0, g: 0, b: 0, a: 0}
+  dimmingLerp: 0
+  colorLerp: 0
 --- !u!114 &125881902656769636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14639,6 +14664,9 @@ MonoBehaviour:
   ambEnd: {r: 0, g: 0, b: 0, a: 1}
   duration: 360
   dimmingDuration: 360
+  skyboxColor: {r: 0, g: 0, b: 0, a: 0}
+  dimmingLerp: 0
+  colorLerp: 1
 --- !u!45 &125881902656769637
 Skybox:
   m_ObjectHideFlags: 0
@@ -14646,7 +14674,7 @@ Skybox:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2045273335083510610}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CustomSkybox: {fileID: 2100000, guid: f9ec1c0318dcc3149b0e9ae62a6d8cdf, type: 2}
 --- !u!4 &543450652856658422
 Transform:
@@ -14736,7 +14764,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
