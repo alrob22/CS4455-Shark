@@ -44,19 +44,21 @@ Textured water
 
 Sydney:
 Coded Game Control script, handling the buttons and canvases’ open/close conditions
-Also includes a timer for the controls and pressing ‘c’ to open the controls again
+- Game Control script also includes a timer for the controls and pressing ‘c’ to open the controls again
+- Coded controls to disappear after a few seconds
 Coded Game Timer script, handling the gameplay timer
 Coded Kayak Collision Handler script, handling shark and player collisions
-Created/implemented UI canvas
-Drew main menu screen
-Made working start, info, and quit buttons
+Created/implemented UI canvas (main menu screen and controls)
+- Drew and designed main menu screen
+- Made working start, info, and quit buttons on main menu screen
 Created/implemented How To Play canvas
-Drew how to play screen
-Made working menu and start buttons
-Created Game Over canvas
-Drew the Game Over screen
-Implemented changing text per end condition (shark vs. time)
+- Drew how to play screen
+- Made working menu and start buttons on the how to play screen
+Created/implemented Game Over canvas which opens when you hit a shark or the timer runs out
+- Drew the Game Over screen
+- Implemented changing text per end condition (shark vs. time)
 Created a timer that, when it runs out, opens the Game Over screen
+Created the pause menu which is the how to play menu without the start button (open and close with 'esc')
 
 Maddi:
 Player Character
