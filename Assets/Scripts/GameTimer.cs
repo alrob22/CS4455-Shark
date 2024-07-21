@@ -24,7 +24,7 @@ public class GameTimer : MonoBehaviour
     private Vector3 startingPosition;
     private Quaternion startingRotation;
     public ColorChange colorChangeScript;
-
+    public LightController lightControllerScript;
 
     void Start()
     {
@@ -116,6 +116,8 @@ public class GameTimer : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        colorChangeScript.ResetColors();
+        lightControllerScript.ResetLight();
         SceneManager.LoadScene("Final");
         //loseScreenCanvas.SetActive(false);
         //mainMenuCanvas.SetActive(true);
