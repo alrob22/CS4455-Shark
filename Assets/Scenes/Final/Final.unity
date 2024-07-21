@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 1.3062382, g: 0.7324835, b: 1.2871165, a: 1}
+  m_IndirectSpecularColor: {r: 1.3215513, g: 0.7415396, b: 1.2930609, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -838,8 +838,8 @@ MonoBehaviour:
   backButton: {fileID: 371079645}
   infoStartButton: {fileID: 923876633}
   infoStartButtonGO: {fileID: 923876631}
-  colorChangeScript: {fileID: 0}
-  lightControllerScript: {fileID: 0}
+  colorChangeScript: {fileID: 1774442797}
+  lightControllerScript: {fileID: 1774442796}
 --- !u!4 &82899288
 Transform:
   m_ObjectHideFlags: 0
@@ -867,7 +867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c2f210520264e07adc7d46eb39a788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 300
+  startTime: 315
   currentTime: 0
   timerText: {fileID: 1886963820}
   mainMenuStartButton: {fileID: 1254360409}
@@ -879,7 +879,8 @@ MonoBehaviour:
   timeUpText: {fileID: 287302980}
   sharkHitText: {fileID: 208600269}
   player: {fileID: 8372521049127128695}
-  colorChangeScript: {fileID: 0}
+  colorChangeScript: {fileID: 1774442797}
+  lightControllerScript: {fileID: 0}
 --- !u!114 &82899290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12024,6 +12025,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1774442795}
   - component: {fileID: 1774442794}
+  - component: {fileID: 1774442797}
+  - component: {fileID: 1774442796}
   m_Layer: 0
   m_Name: LightDim
   m_TagString: Untagged
@@ -12043,10 +12046,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8297f3103b4547946b6d2041e4d555e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightGameObjectName: Directional Light
-  dimmingDuration: 360
-  startColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  endColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!4 &1774442795
 Transform:
   m_ObjectHideFlags: 0
@@ -12062,6 +12061,43 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1774442796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774442793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c2d8dce1a422b34fa3ebe2fbbb82c47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightGameObjectName: Directional Light
+  dimmingDuration: 315
+  startColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  endColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!114 &1774442797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774442793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd00bd14b092a4e439dcc9440613e53b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultColor: {r: 1, g: 0, b: 1, a: 1}
+  HighlightColor: {r: 0, g: 0, b: 1, a: 1}
+  ambLightStart: {r: 1, g: 1, b: 1, a: 1}
+  ambEnd: {r: 0, g: 0, b: 0, a: 1}
+  duration: 315
+  dimmingDuration: 315
+  skyboxColor: {r: 0, g: 0, b: 0, a: 0}
+  dimmingLerp: 0
+  colorLerp: 0
 --- !u!1 &1777602473
 GameObject:
   m_ObjectHideFlags: 0
