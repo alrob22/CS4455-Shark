@@ -880,7 +880,7 @@ MonoBehaviour:
   sharkHitText: {fileID: 208600269}
   player: {fileID: 8372521049127128695}
   colorChangeScript: {fileID: 1774442797}
-  lightControllerScript: {fileID: 0}
+  lightControllerScript: {fileID: 1774442796}
 --- !u!114 &82899290
 MonoBehaviour:
   m_ObjectHideFlags: 0
