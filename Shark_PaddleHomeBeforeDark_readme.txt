@@ -16,8 +16,7 @@ Observable technical requirements:
 - Background music at starting and ending areas
 
 Known problem areas: 
-- skybox won't reset back to light when restarting game from pause menu but works
-when you re-launch the game
+- skybox won't reset back to light when restarting game from in game, but it works when you re-launch the game
 - autoforward W animations will play regardless of having no stamina
 - no sfx during autoforward
 
